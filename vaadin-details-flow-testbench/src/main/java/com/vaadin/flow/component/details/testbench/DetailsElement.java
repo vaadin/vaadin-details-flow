@@ -26,4 +26,17 @@ import com.vaadin.testbench.elementsbase.Element;
 @Element("vaadin-details")
 public class DetailsElement extends TestBenchElement {
 
+	/**
+	 * Returns summary element
+	 */
+	public TestBenchElement getSummary() {
+		return $(TestBenchElement.class).attribute("slot", "summary").first();
+	}
+
+	/**
+	 * Returns summary element as string
+	 */
+	public String getSummaryText() {
+		return getSummary().getText();
+	}
 }
