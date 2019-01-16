@@ -39,4 +39,21 @@ public class DetailsElement extends TestBenchElement {
 	public String getSummaryText() {
 		return getSummary().getText();
 	}
+
+	/**
+	 * Returns content element
+	 */
+	public TestBenchElement getContent() {
+		TestBenchElement contentPlaceholder = $(TestBenchElement.class).attribute("part", "content").first();
+
+		return (TestBenchElement) executeScript("return arguments[0].firstElementChild.assignedNodes()[0];",
+				contentPlaceholder);
+	}
+
+	/**
+	 * Returns content element as string
+	 */
+	public String getContentText() {
+		return getContent().getText();
+	}
 }

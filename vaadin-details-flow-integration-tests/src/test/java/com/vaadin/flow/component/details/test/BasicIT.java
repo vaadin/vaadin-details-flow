@@ -26,4 +26,21 @@ public class BasicIT extends AbstractParallelTest {
         DetailsElement detail2 = detailsElements.get(1);
         Assert.assertEquals("Summary Text", detail2.getSummaryText());
     }
+
+    @Test
+    public void testContent() {
+        List<DetailsElement> detailsElements = $(DetailsElement.class).all();
+
+        Assert.assertEquals(2, detailsElements.size());
+
+        DetailsElement detail1 = detailsElements.get(0);
+        Assert.assertEquals("", detail1.getContentText());
+        detail1.getSummary().click();
+        Assert.assertEquals("Some content", detail1.getContentText());
+
+        DetailsElement detail2 = detailsElements.get(1);
+        Assert.assertEquals("", detail2.getContentText());
+        detail2.getSummary().click();
+        Assert.assertEquals("Content Text", detail2.getContentText());
+    }
 }
