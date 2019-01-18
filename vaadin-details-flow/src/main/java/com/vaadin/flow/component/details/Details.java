@@ -42,6 +42,7 @@ public class Details extends Component {
      * Initializes a new Details using the provided summary and content.
      *
      * @param summary the summary text to set.
+     * @param content the content component to set.
      *
      * @see #setSummaryText(String)
      * @see #setContent(Component)
@@ -55,6 +56,7 @@ public class Details extends Component {
      * Initializes a new Details using the provided summary and content.
      *
      * @param summary the summary component to set.
+     * @param content the content component to set.
      *
      * @see #setSummary(Component)
      * @see #setContent(Component)
