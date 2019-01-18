@@ -48,7 +48,7 @@ public class Details extends Component {
      */
     public Details(String summary, Component content) {
         setSummaryText(summary);
-        setContent(content)
+        setContent(content);
     }
 
     /**
@@ -61,7 +61,7 @@ public class Details extends Component {
      */
     public Details(Component summary, Component content) {
         setSummary(summary);
-        setContent(content)
+        setContent(content);
     }
 
     /**
