@@ -44,7 +44,7 @@ public class Details extends Component {
      * @param summary the summary text to set.
      *
      * @see #setSummaryText(String)
-     * @see #setSummary(Component)
+     * @see #setContent(Component)
      */
     public Details(String summary, Component content) {
         setSummaryText(summary);
@@ -57,7 +57,7 @@ public class Details extends Component {
      * @param summary the summary component to set.
      *
      * @see #setSummary(Component)
-     * @see #setSummary(Component)
+     * @see #setContent(Component)
      */
     public Details(Component summary, Component content) {
         setSummary(summary);
