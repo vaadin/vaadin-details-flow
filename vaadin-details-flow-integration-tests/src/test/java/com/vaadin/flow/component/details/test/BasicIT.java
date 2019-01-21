@@ -1,6 +1,7 @@
 package com.vaadin.flow.component.details.test;
 
 import com.vaadin.flow.component.details.testbench.DetailsElement;
+import com.vaadin.testbench.TestBenchElement;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,17 +10,19 @@ import java.util.List;
 
 public class BasicIT extends AbstractParallelTest {
 
+
+    private List<DetailsElement> detailsElements;
+
     @Before
     public void init() {
         getDriver().get(getBaseURL());
+        detailsElements = $(DetailsElement.class).all();
+
+        Assert.assertEquals(3, detailsElements.size());
     }
 
     @Test
     public void testSummary() {
-        List<DetailsElement> detailsElements = $(DetailsElement.class).all();
-
-        Assert.assertEquals(2, detailsElements.size());
-
         DetailsElement detail1 = detailsElements.get(0);
         Assert.assertEquals("Some summary", detail1.getSummaryText());
 
@@ -29,10 +32,6 @@ public class BasicIT extends AbstractParallelTest {
 
     @Test
     public void testContent() {
-        List<DetailsElement> detailsElements = $(DetailsElement.class).all();
-
-        Assert.assertEquals(2, detailsElements.size());
-
         DetailsElement detail1 = detailsElements.get(0);
         Assert.assertFalse(detail1.isOpened());
         detail1.getSummary().click();
@@ -44,5 +43,12 @@ public class BasicIT extends AbstractParallelTest {
         Assert.assertEquals("Content Text", detail2.getContentText());
         detail2.getSummary().click();
         Assert.assertFalse(detail2.isOpened());
+
+        DetailsElement detail3 = detailsElements.get(2);
+        Assert.assertTrue(detail3.isOpened());
+        Assert.assertFalse(detail3.isEnabled());
+        Assert.assertEquals("Always visible content", detail3.getContentText());
+        detail3.$(TestBenchElement.class).attribute("part", "summary-content").first().click();
+        Assert.assertTrue(detail3.isOpened());
     }
 }

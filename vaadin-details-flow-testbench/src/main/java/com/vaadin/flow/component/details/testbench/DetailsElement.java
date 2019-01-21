@@ -60,4 +60,8 @@ public class DetailsElement extends TestBenchElement {
 	public boolean isOpened() {
 		return getPropertyBoolean("opened");
 	}
+
+	public boolean isEnabled() {
+		return !getPropertyBoolean("disabled");
+	}
 }
