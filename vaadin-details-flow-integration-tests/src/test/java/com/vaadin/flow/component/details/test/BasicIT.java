@@ -13,7 +13,6 @@ import java.util.stream.Stream;
 
 public class BasicIT extends AbstractParallelTest {
 
-
     private List<DetailsElement> detailsElements;
 
     @Before
@@ -31,10 +30,6 @@ public class BasicIT extends AbstractParallelTest {
 
         DetailsElement detail2 = detailsElements.get(1);
         Assert.assertEquals("Summary Text", detail2.getSummaryText());
-        Assert.assertEquals("16px", detail2.getCssValue("fontSize"));
-        Assert.assertTrue(
-                detail2.getCssValue("backgroundColor").equals("rgba(0, 0, 0, 0)") ||
-                detail2.getCssValue("backgroundColor").equals("transparent"));
 
         DetailsElement detail4   = detailsElements.get(3);
         List<String> themes = Arrays.asList( detail4.getAttribute("theme").split(" "));
@@ -42,8 +37,6 @@ public class BasicIT extends AbstractParallelTest {
                 Stream.of(DetailsVariant.values())
                         .map(DetailsVariant::getVariantName).collect(Collectors.toList())));
         Assert.assertEquals("Small Reversed Filled Summary", detail4.getSummaryText());
-        Assert.assertEquals("14px", detail4.getSummary().getCssValue("fontSize"));
-        Assert.assertNotEquals("rgba(0, 0, 0, 0)", detail4.getCssValue("backgroundColor"));
     }
 
     @Test
