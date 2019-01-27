@@ -31,8 +31,10 @@ public class BasicIT extends AbstractParallelTest {
 
         DetailsElement detail2 = detailsElements.get(1);
         Assert.assertEquals("Summary Text", detail2.getSummaryText());
-        Assert.assertEquals("16px", detail2.getSummary().getCssValue("fontSize"));
-        Assert.assertEquals("rgba(0, 0, 0, 0)", detail2.getCssValue("backgroundColor"));
+        Assert.assertEquals("16px", detail2.getCssValue("fontSize"));
+        Assert.assertTrue(
+                detail2.getCssValue("backgroundColor").equals("rgba(0, 0, 0, 0)") ||
+                detail2.getCssValue("backgroundColor").equals("transparent"));
 
         DetailsElement detail4   = detailsElements.get(3);
         List<String> themes = Arrays.asList( detail4.getAttribute("theme").split(" "));
