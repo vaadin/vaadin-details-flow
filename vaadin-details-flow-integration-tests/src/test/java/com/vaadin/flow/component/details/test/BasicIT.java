@@ -1,11 +1,15 @@
 package com.vaadin.flow.component.details.test;
 
+import com.vaadin.flow.component.details.DetailsVariant;
 import com.vaadin.flow.component.details.testbench.DetailsElement;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BasicIT extends AbstractParallelTest {
 
@@ -17,7 +21,7 @@ public class BasicIT extends AbstractParallelTest {
         getDriver().get(getBaseURL());
         detailsElements = $(DetailsElement.class).all();
 
-        Assert.assertEquals(3, detailsElements.size());
+        Assert.assertEquals(4, detailsElements.size());
     }
 
     @Test
@@ -27,6 +31,17 @@ public class BasicIT extends AbstractParallelTest {
 
         DetailsElement detail2 = detailsElements.get(1);
         Assert.assertEquals("Summary Text", detail2.getSummaryText());
+        Assert.assertEquals("16px", detail2.getSummary().getCssValue("fontSize"));
+        Assert.assertEquals("rgba(0, 0, 0, 0)", detail2.getCssValue("backgroundColor"));
+
+        DetailsElement detail4   = detailsElements.get(3);
+        List<String> themes = Arrays.asList( detail4.getAttribute("theme").split(" "));
+        Assert.assertTrue(themes.containsAll(
+                Stream.of(DetailsVariant.values())
+                        .map(DetailsVariant::getVariantName).collect(Collectors.toList())));
+        Assert.assertEquals("Small Reversed Filled Summary", detail4.getSummaryText());
+        Assert.assertEquals("14px", detail4.getSummary().getCssValue("fontSize"));
+        Assert.assertNotEquals("rgba(0, 0, 0, 0)", detail4.getCssValue("backgroundColor"));
     }
 
     @Test
