@@ -161,7 +161,7 @@ public class Details extends Component implements HasEnabled, HasTheme {
 
     /**
      * Returns the content components which were added via {@link #setContent(Component)}
-     * or
+     * or via {@link #addContent(Component...)}
      *
      * @return the child components of the content section
      */
