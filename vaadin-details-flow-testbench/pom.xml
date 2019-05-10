@@ -9,7 +9,7 @@
         <version>2.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>vaadin-details-testbench</artifactId>
+    <artifactId>vaadin-details-flow-testbench</artifactId>
     <packaging>jar</packaging>
 
     <name>Vaadin Details Testbench API</name>
