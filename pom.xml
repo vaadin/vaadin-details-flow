@@ -60,9 +60,6 @@
 		</profile>
 		<profile>
 			<id>bower-it</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<modules>
 				<module>vaadin-details-flow-integration-tests/pom-bower-mode.xml</module>
 			</modules>
