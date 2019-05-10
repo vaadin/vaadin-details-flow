@@ -49,4 +49,25 @@
         </repository>
     </repositories>
 
+	<profiles>
+		<profile>
+			<id>npm-it</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>vaadin-details-flow-integration-tests</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>bower-it</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>vaadin-details-flow-integration-tests/pom-bower-mode.xml</module>
+			</modules>
+		</profile>
+	</profiles>
+
 </project>
