@@ -34,7 +34,6 @@
 	<modules>
 		<module>vaadin-details-flow</module>
 		<module>vaadin-details-flow-testbench</module>
-		<module>vaadin-details-flow-integration-tests</module>
 		<module>vaadin-details-flow-demo</module>
 	</modules>
     
